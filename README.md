@@ -46,4 +46,7 @@ typescript 开发的 react 组件库
 ### 添加单元测试
 
 - 使用 create-react-app 自带的 jest，jest-dom，@testing-library/react
--
+
+### 相关链接
+
+- [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

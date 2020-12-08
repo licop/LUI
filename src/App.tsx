@@ -6,11 +6,11 @@ import MenuItem from './components/Menu/menuItem';
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex={0} onSelect= {(index) => {console.log(index)}}>
+      <Menu mode='vertical' defaultIndex={0} onSelect= {(index) => {console.log(index)}}>
         <MenuItem  index={0}>
             link1
         </MenuItem>
-        <MenuItem index={1}>
+        <MenuItem disabled index={1}>
             link2
         </MenuItem>
         <MenuItem index={2}>
