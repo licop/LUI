@@ -41,4 +41,9 @@ typescript 开发的 react 组件库
 
 ### 使用 normallize.css
 
+- 使 HTML 元素在样式上在各个浏览器保持的高度一致性
+
+### 添加单元测试
+
+- 使用 create-react-app 自带的 jest，jest-dom，@testing-library/react
 -
