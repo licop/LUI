@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 export type ButtonSize = 'lg' | 'sm';
 
@@ -28,7 +27,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         href,
         ...restProps
     } = props;
-    // btn, btn-lg, btn-primary
+
     const classes = classNames('btn', classname, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
