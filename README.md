@@ -47,6 +47,18 @@ typescript 开发的 react 组件库
 
 - 使用 create-react-app 自带的 jest，jest-dom，@testing-library/react
 
+### 图标 icon 解决方案
+
+- 使用 svg 格式
+- react-fontawesome
+- react-fontawesome 项目安装
+
+```
+  npm i --save @fortawesome/fontawesome-svg-core
+  npm install --save @fortawesome/free-solid-svg-icons
+  npm install --save @fortawesome/react-fontawesome
+```
+
 ### 相关链接
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
