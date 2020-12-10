@@ -67,6 +67,16 @@ typescript 开发的 react 组件库
 - 动画参考效果 animate.css
 - 编写 transition 组件实现动画效果的复用
 
+### 本地调试组件&生成文档
+
+- create-react-app 入口文件不适合管理组件库
+- 缺少行为追踪和属性调试功能
+- storybook
+  - 能分开展示各个组件不同属性下的状态
+  - 能追踪组件的行为并且具有调试功能
+  - 可以为组件自动生成文档和属性列表
+- react-docgen 自动生成文档
+
 ### 相关链接
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
