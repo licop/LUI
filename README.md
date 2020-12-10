@@ -59,6 +59,14 @@ typescript 开发的 react 组件库
   npm install --save @fortawesome/react-fontawesome
 ```
 
+- 使用 scss 的 each 功能为 icon 添加主题
+
+### 动画效果
+
+- 使用 react-transition-group 库
+- 动画参考效果 animate.css
+- 编写 transition 组件实现动画效果的复用
+
 ### 相关链接
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

@@ -1,8 +1,8 @@
-import React, { FunctionComponentElement } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
-export type ThemeProps = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark'
+export type ThemeProps = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
 
 export interface IconProps extends FontAwesomeIconProps {
   theme? : ThemeProps
@@ -11,7 +11,7 @@ export interface IconProps extends FontAwesomeIconProps {
 const Icon: React.FC<IconProps> = (props) => {
   // icon-primary
   const { className, theme, ...restProps } = props
-  const classes = classNames('viking-icon', className, {
+  const classes = classNames('lui-icon', className, {
     [`icon-${theme}`]: theme
   })
   return (

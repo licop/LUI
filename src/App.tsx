@@ -10,8 +10,8 @@ library.add(fas)
 function App() {
   return (
     <div className="App">
-      <Icon icon="coffee" theme='danger' size='lg' />
-      <Menu defaultIndex='0' mode='vertical' defaultOpenSubMenu={['2']} onSelect= {(index) => {console.log(index)}}>
+      <Icon icon="coffee" theme='primary' size="5x" />
+      <Menu defaultIndex='0'  defaultOpenSubMenu={['2']} onSelect= {(index) => {console.log(index)}}>
         <MenuItem>
             link1
         </MenuItem>
