@@ -2,6 +2,8 @@ import React, { FC, useState, ChangeEvent, KeyboardEvent, ReactElement, useEffec
 import classNames from 'classnames';
 import Input, { InputProps } from '../Input/input';
 import Icon from '../Icon/icon';
+import useDebounce from '../../hooks/useDebounce'
+
 import Transition from '../Transition/transition';
 import { render } from 'react-dom';
 
@@ -23,23 +25,25 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
         renderOption,
         ...restProps
     } = props;
-
+    const [isLoading, setLoading] = useState(false)
     const [inputValue,  setInputValue] = useState(value as string);
     const [suggestions, setSuggestions] = useState<DataSourceType[]>([]); 
+    const debounceValue = useDebounce(inputValue, 500)
     const handleSelect = (item: DataSourceType) => {
         setInputValue(item.value)
         setSuggestions([])
         if (onSelect) {
           onSelect(item)
         }
-      }
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.trim();
-        setInputValue(value);
-        if(value) {
-            const results = fetchSuggestions(value);
+    }
+
+    useEffect(() => {
+        if(debounceValue) {
+            const results = fetchSuggestions(debounceValue);
             if(results instanceof Promise) {
+                setLoading(true);
                 results.then(data => {
+                    setLoading(false);
                     setSuggestions(data);
                 })
             } else {
@@ -48,6 +52,12 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
         } else {
             setSuggestions([])
         }
+    }, [debounceValue])
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.trim();
+        setInputValue(value);
+
     }
     const generateDropdown = () => {
         return (
@@ -70,12 +80,12 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
                 onChange={handleChange}
                 {...restProps}
             />
+            { isLoading &&
+                <ul><Icon icon="spinner" spin/></ul>
+            }
             {suggestions.length > 0 && generateDropdown()}
         </div>
     )
 }
 
 export default AutoComplete;
-
-
-

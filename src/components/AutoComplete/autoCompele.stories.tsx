@@ -37,7 +37,7 @@ const SimpleComplete = () => {
       .then(res => res.json())
       .then(({ items }) => {
         console.log(items)
-        return items.slice(0, 10).map((item: any) => ({ value: item.login, ...item}))
+        return items.length > 0 && Array.isArray(items) ? items.slice(0, 10).map((item: any) => ({ value: item.login, ...item})) : []
       })
     // return lakersWithNumber.filter(item => {return item.value.includes(query)});
   }
