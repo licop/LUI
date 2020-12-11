@@ -1,35 +1,48 @@
-import React from 'react';
-import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem';
-import SubMenu from './components/Menu/subMenu';
-import Icon from './components/Icon/icon';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-library.add(fas)
+import React, {ChangeEvent, useEffect, useState} from 'react';
+import axios from 'axios';
 
-function App() {
+/**
+ * 
+ */
+const App: React.FC = () => {
+  const [title, setTitle] = useState('');
+  const postData = {
+    title: 'licop',
+    body: 'hello man'
+  }
+  useEffect(() => {
+    axios.post('https://jsonplaceholder.typicode.com/posts', postData)
+      .then(resp => {
+        setTitle(resp.data.title);
+      })
+  })
+  
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if(files) {
+      const uploadedFile = files[0];
+      const formData = new FormData();
+      
+      formData.append(uploadedFile.name, uploadedFile);
+      axios.post("https://jsonplaceholder.typicode.com/posts", formData, {
+        headers: {
+          "Content-Type": 'multipart/form-data'
+        }
+      }).then(res => {
+        console.log(res);
+      })
+    }
+  }
+
   return (
     <div className="App">
-      <Icon icon="coffee" theme='primary' size="5x" />
-      <Menu defaultIndex='0'  defaultOpenSubMenu={['2']} onSelect= {(index) => {console.log(index)}}>
-        <MenuItem>
-            link1
-        </MenuItem>
-        <MenuItem disabled >
-            link2
-        </MenuItem>
-        <SubMenu title="dropdown">
-          <MenuItem>
-            dropdown1
-          </MenuItem>
-          <MenuItem disabled >
-            dropdown1
-          </MenuItem>
-        </SubMenu>
-        <MenuItem >
-            link3
-        </MenuItem>
-      </Menu>
+      {title}
+      <input type="file" name="myfile" onChange={handleFileChange} />
+      
+      {/* <form method="post" encType="multipart/formdata" action="https://jsonplaceholder.typicode.com/posts">
+        <input type="file" name="myfile" />
+        <button type="submit">submit</button>
+      </form> */}
     </div>
   );
 }

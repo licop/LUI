@@ -1,3 +1,6 @@
+/**
+ * 点击某个区域外的位置执行某个函数
+ */
 import { RefObject, useEffect } from 'react';
 
 function useClickOutside(ref: RefObject<HTMLElement>, handler: Function) {

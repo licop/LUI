@@ -2,6 +2,8 @@
 
 typescript 开发的 react 组件库
 
+避免刚开始过度设计，一步一步根据需求完善自己的组件
+
 ### 完成一个组件库需要考虑哪些问题
 
 - 代码结构
@@ -76,6 +78,31 @@ typescript 开发的 react 组件库
   - 能追踪组件的行为并且具有调试功能
   - 可以为组件自动生成文档和属性列表
 - react-docgen 自动生成文档
+
+### 上传组件
+
+#### 上传流程
+
+开始上传 --> beforeUpload(file) --> onProgress(event, file) --> onChange(file) --> onSuccess(response, file) or onError(error, file)
+
+#### 异步请求
+
+- 以前 --> 原生 XHR 和$.ajax(), $.ajax()是对 XHR 的封装
+
+```
+  const xhr = new XMLHttpRequest();
+  xhr.open('get', 'http://test.me');
+  xhr.responseType = 'json';
+
+  xhr.onload = function() {
+    console.log(xhr.response);
+  }
+  xhr.onerror = function() {
+    console.log("oop, error");
+  }
+  xhr.send()
+
+```
 
 ### 相关链接
 
