@@ -9,17 +9,18 @@ import Icon from '../Icon/icon'
 //   { uid: '122', size: 1234, name: 'xyz.md', status: 'success', percent: 30 },
 //   { uid: '121', size: 1234, name: 'eyiha.md', status: 'error', percent: 30 }
 // ]
-// const checkFileSize = (file: File) => {
-//   if (Math.round(file.size / 1024) > 50) {
-//     alert('file too big')
-//     return false;
-//   }
-//   return true;
-// }
-// const filePromise = (file: File) => {
-//   const newFile = new File([file], 'new_name.docx', {type: file.type})
-//   return Promise.resolve(newFile)
-// }
+const checkFileSize = (file: File) => {
+  if (Math.round(file.size / 1024) > 50) {
+    alert('file too big')
+    return false;
+  }
+  return true;
+}
+const filePromise = (file: File) => {
+  const newFile = new File([file], 'new_name.docx', {type: file.type})
+  return Promise.resolve(newFile)
+}
+
 const SimpleUpload = () => {
   return (
     <Upload
@@ -27,14 +28,17 @@ const SimpleUpload = () => {
       onProgress={action('changed')}
       onSuccess={action('sucess')}
       onError={action('error')}
+      // beforeUpload={filePromise}
     //   onRemove={action('removed')}
-    //   name="fileName"
+      name="fileName"
+      data={{'key': 'value'}}
+      headers={{"X-Powered-By": 'licop'}}
     //   multiple
-    //   drag
+      drag
     >
-      {/* <Icon icon="upload" size="5x" theme="secondary" />
+      <Icon icon="upload" size="5x" theme="secondary" />
       <br/>
-      <p>Drag file over to upload</p> */}
+      <p>Drag file over to upload</p>
     </Upload>
   )
 }

@@ -1,9 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import axios from 'axios';
 
-/**
- * 
- */
+
 const App: React.FC = () => {
   const [title, setTitle] = useState('');
   const postData = {

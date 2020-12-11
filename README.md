@@ -88,8 +88,10 @@ typescript 开发的 react 组件库
 #### 异步请求
 
 - 以前 --> 原生 XHR 和$.ajax(), $.ajax()是对 XHR 的封装
+- XHR API
 
 ```
+
   const xhr = new XMLHttpRequest();
   xhr.open('get', 'http://test.me');
   xhr.responseType = 'json';
@@ -103,6 +105,19 @@ typescript 开发的 react 组件库
   xhr.send()
 
 ```
+
+- fetch 缺点
+
+  - 只对网络请求报错, 对 400， 500 都当做成功的请求
+  - 默认不会带 cookie
+  - 不支持 abort，不支持超时控制
+  - 没有办法原生监测请求进度
+
+- 在线 mock server
+  - [mocky](https://designer.mocky.io/design/confirmation)
+  - [jsonplaceholder](https://jsonplaceholder.typicode.com/)
+- 文件上传
+  - 两种上传方式： 表单提交 & javascript 发送异步请求
 
 ### 相关链接
 
