@@ -119,6 +119,18 @@ typescript 开发的 react 组件库
 - 文件上传
   - 两种上传方式： 表单提交 & javascript 发送异步请求
 
+### 模块 modules
+
+- commonjs(服务端，nodejs), amd(require.js), es6 module(更强大， import export)
+- webpack（modules bundler）
+- typescript.tsx --tsc--> es6 modules.jsx --> 入口文件 index.tsx --module bundler--> 浏览器使用一个多个 js 文件
+- 为什么 ES 模块比 CommonJS 更好?
+  ES 模块是官方标准，也是 JavaScript 语言明确的发展方向，而 CommonJS 模块是一种特殊的传统格式，在 ES 模块被提出之前做为暂时的解决方案。 ES 模块允许进行静态分析，从而实现像 tree-shaking 的优化，并提供诸如循环引用和动态绑定等高级功能。
+
+### 本地测试组件
+
+- npm link
+
 ### 相关链接
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
