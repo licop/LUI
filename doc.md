@@ -137,11 +137,23 @@ typescript 开发的 react 组件库
 - 下载并安装别人编写的命令行程序到本地使用
 - 将自己编写的包和命令行程序上传到 npm 服务器
 - 更换源 npm --registry=https://registry.npmjs.org
+- npm publish --access public
+
+https://shields.io/
 
 ### ci/cd
 
 - 持续集成（ci）
+
+  - 频繁的将代码集成到主干
+  - 快速发现错误
+  - 防止分支大幅偏离主干
+
 - 持续交付、持续部署（cd）
+
+  - 频繁的将软件的新版本，交付给质量团队或者用户
+  - 代码通过评审以后，自动部署到生产环境
+
 - travis
 
 ### 相关链接
