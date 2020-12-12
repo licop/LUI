@@ -27,7 +27,6 @@ const App: React.FC = () => {
           "Content-Type": 'multipart/form-data'
         }
       }).then(res => {
-        console.log(res);
       })
     }
   }

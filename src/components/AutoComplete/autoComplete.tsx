@@ -5,8 +5,6 @@ import Icon from '../Icon/icon';
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside';
 import Transition from '../Transition/transition';
-import { render } from 'react-dom';
-
 
 interface DataSourceObject {
     value: string

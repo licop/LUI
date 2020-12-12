@@ -14,7 +14,7 @@ const testProps: ButtonProps = {
 
 const disabledProps: ButtonProps = {
     disabled: true,
-    onClick: jest.fn
+    onClick: jest.fn()
 }
 
 describe('test button component', () => {
