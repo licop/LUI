@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Upload, {UploadProps} from './Upload';
-import Button from '../Button/Button'
+import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
 export default {
