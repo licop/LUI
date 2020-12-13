@@ -1,18 +1,39 @@
 import React, {ChangeEvent, ReactElement, InputHTMLAttributes, HTMLAttributes} from 'react';
 import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import Icon from '../Icon/icon'
+import Icon from '../Icon/Icon'
 
 type InputSize = 'lg' | 'sm';
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
+    /**
+     * 禁用状态
+     */
     disabled?: boolean,
+    /**
+     * 设置输入框大小
+     */
     size?: InputSize,
+    /**
+     * 添加icon
+     */
     icon?: IconProp,
+    /**
+     * 带有前缀图标的 input	
+     */
     prepend?: string | ReactElement,
+    /**
+     * 	带有后缀图标的 input
+     */
     append?: string | ReactElement,
+    /**
+     * 输入框内容变化时的回调
+     */
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
+/**
+ * Input输入框
+ */
 const Input: React.FC<InputProps> = (props) => {
     const {
        disabled,

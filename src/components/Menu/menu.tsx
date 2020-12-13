@@ -1,6 +1,6 @@
 import React, {useState, createContext} from 'react';
 import classNames from 'classnames';
-import { MenuItemProps } from './menuItem'
+import { MenuItemProps } from './MenuItem'
 
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: string) => void;
@@ -8,6 +8,9 @@ type SelectCallback = (selectedIndex: string) => void;
 export interface MenuProps {
     defaultIndex?: string,
     className?: string,
+    /**
+     * 模式，选择垂直模式还是水平模式
+     */
     mode?: MenuMode,
     style?: React.CSSProperties,
     defaultOpenSubMenu?: string[],

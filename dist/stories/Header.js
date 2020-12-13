@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './Button';
+import Button from './Button';
 import './header.css';
 export var Header = function (_a) {
     var user = _a.user, onLogin = _a.onLogin, onLogout = _a.onLogout, onCreateAccount = _a.onCreateAccount;

@@ -1,14 +1,16 @@
-import React  from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import Upload from './upload'
-//import Button from '../Button/button'
-import Icon from '../Icon/icon'
-// const defaultFileList: UploadFile[] = [
-//   { uid: '123', size: 1234, name: 'hello.md', status: 'uploading', percent: 30 },
-//   { uid: '122', size: 1234, name: 'xyz.md', status: 'success', percent: 30 },
-//   { uid: '121', size: 1234, name: 'eyiha.md', status: 'error', percent: 30 }
-// ]
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import Upload, {UploadProps} from './Upload';
+import Button from '../Button/Button'
+import Icon from '../Icon/Icon';
+
+export default {
+  title: 'Components/Upload',
+  component: Upload,
+} as Meta;
+
+
 const checkFileSize = (file: File) => {
   if (Math.round(file.size / 1024) > 50) {
     alert('file too big')
@@ -21,7 +23,27 @@ const filePromise = (file: File) => {
   return Promise.resolve(newFile)
 }
 
-const SimpleUpload = () => {
+export const Upload1: React.FC<Story<UploadProps>> = (props) => {
+  return (
+    <Upload
+      action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+      onProgress={action('changed')}
+      onSuccess={action('sucess')}
+      onError={action('error')}
+      beforeUpload={filePromise}
+      onRemove={action('removed')}
+      name="fileName"
+      data={{'key': 'value'}}
+      headers={{"X-Powered-By": 'licop'}}
+      multiple
+    >
+      <Button>Upload</Button>
+    </Upload>
+  )
+}
+(Upload1 as any).storyName = '点击上传';
+
+export const DragUpload: React.FC<Story<UploadProps>> = (props) => {
   return (
     <Upload
       action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
@@ -29,11 +51,11 @@ const SimpleUpload = () => {
       onSuccess={action('sucess')}
       onError={action('error')}
       // beforeUpload={filePromise}
-    //   onRemove={action('removed')}
+      onRemove={action('removed')}
       name="fileName"
       data={{'key': 'value'}}
       headers={{"X-Powered-By": 'licop'}}
-    //   multiple
+      multiple
       drag
     >
       <Icon icon="upload" size="5x" theme="secondary" />
@@ -42,6 +64,4 @@ const SimpleUpload = () => {
     </Upload>
   )
 }
-
-storiesOf('Upload component', module)
-  .add('Upload', SimpleUpload)
+(DragUpload as any).storyName = '拖动上传';

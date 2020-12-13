@@ -5,5 +5,5 @@ library.add(fas)
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-
+  
 }

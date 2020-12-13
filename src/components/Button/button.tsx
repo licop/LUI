@@ -1,22 +1,42 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 export type ButtonSize = 'lg' | 'sm';
 
 interface BaseButtonProps {
-    classname?: string;
-    disabled?: boolean;
-    size?: ButtonSize;
+    /**
+     * 设置按钮类型
+     */
     btnType?: ButtonType;
-    children?: React.ReactNode,
-    href?: string
+    /**
+     * 点击跳转的地址，指定此属性 button 的行为和 a 链接一致
+     */
+    href?: string;
+    /**
+     * 添加classname
+    */
+   classname?: string;
+   /**
+    * 按钮失效状态
+    */
+   disabled?: boolean;
+   /**
+    * 设置按钮大小
+    */
+   size?: ButtonSize;
+   children?: React.ReactNode;
 }
+    
+    
 
 type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
+/**
+ * Button 组件
+ */
 const Button: React.FC<ButtonProps> = (props) => {
     const {
         btnType,

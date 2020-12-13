@@ -23,7 +23,6 @@ var App = function () {
                     "Content-Type": 'multipart/form-data'
                 }
             }).then(function (res) {
-                console.log(res);
             });
         }
     };

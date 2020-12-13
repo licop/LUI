@@ -21,24 +21,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from 'react';
-import classNames from 'classnames';
-var Button = function (props) {
-    var _a;
-    var btnType = props.btnType, disabled = props.disabled, size = props.size, classname = props.classname, children = props.children, href = props.href, restProps = __rest(props, ["btnType", "disabled", "size", "classname", "children", "href"]);
-    var classes = classNames('btn', classname, (_a = {},
-        _a["btn-" + btnType] = btnType,
-        _a["btn-" + size] = size,
-        _a['disabled'] = (btnType === 'link' && disabled),
-        _a));
-    if (btnType === 'link' && href) {
-        return React.createElement("a", __assign({ href: href, className: classes }, restProps), children);
-    }
-    else {
-        return React.createElement("button", __assign({ className: classes, disabled: disabled }, restProps), children);
-    }
-};
-Button.defaultProps = {
-    disabled: false,
-    btnType: 'default'
+/**
+ * Primary UI component for user interaction12
+ */
+var Button = function (_a) {
+    var _b = _a.primary, primary = _b === void 0 ? false : _b, _c = _a.size, size = _c === void 0 ? 'medium' : _c, backgroundColor = _a.backgroundColor, label = _a.label, props = __rest(_a, ["primary", "size", "backgroundColor", "label"]);
+    var mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+    return (React.createElement("button", __assign({ type: "button", className: ['storybook-button', "storybook-button--" + size, mode].join(' '), style: { backgroundColor: backgroundColor } }, props), label));
 };
 export default Button;

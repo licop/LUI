@@ -156,6 +156,9 @@ https://shields.io/
 
 - travis
 
+- 拷贝将静态文件到服务器
+  scp -r storybook-static root@39.107.225.18:/usr/local/nginx/html
+
 ### 相关链接
 
 - [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)

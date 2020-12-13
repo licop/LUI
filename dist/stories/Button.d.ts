@@ -2,11 +2,11 @@ import React from 'react';
 import './button.css';
 export interface ButtonProps {
     /**
-     * Is this the principal call to action on the page?
+     * Is this the principal call to action on the page
      */
     primary?: boolean;
     /**
-     * What background color to use
+     * What color to use
      */
     backgroundColor?: string;
     /**
@@ -23,6 +23,7 @@ export interface ButtonProps {
     onClick?: () => void;
 }
 /**
- * Primary UI component for user interaction
+ * Primary UI component for user interaction12
  */
-export declare const Button: React.FC<ButtonProps>;
+declare const Button: React.FC<ButtonProps>;
+export default Button;

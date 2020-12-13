@@ -1,16 +1,28 @@
 import React from 'react';
-export declare type ButtonType = 'primary' | 'default' | 'danger' | 'link';
-export declare type ButtonSize = 'lg' | 'sm';
-interface BaseButtonProps {
-    classname?: string;
-    disabled?: boolean;
-    size?: ButtonSize;
-    btnType?: ButtonType;
-    children?: React.ReactNode;
-    href?: string;
+export interface ButtonProps {
+    /**
+     * Is this the principal call to action on the page
+     */
+    primary?: boolean;
+    /**
+     * What color to use
+     */
+    backgroundColor?: string;
+    /**
+     * How large should the button be?
+     */
+    size?: 'small' | 'medium' | 'large';
+    /**
+     * Button contents
+     */
+    label: string;
+    /**
+     * Optional click handler
+     */
+    onClick?: () => void;
 }
-declare type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
-declare type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
-export declare type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+/**
+ * Primary UI component for user interaction12
+ */
 declare const Button: React.FC<ButtonProps>;
 export default Button;

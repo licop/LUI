@@ -1,10 +1,9 @@
 import React, {useState, useEffect, useRef, ChangeEvent} from 'react';
 import axios from 'axios';
 import Dragger from './dragger';
-import UploadList from './uploadList'
+import UploadList from './UploadList'
 
 type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error';
-
 export interface UploadFile {
     uid: string;
     size: number;
@@ -17,22 +16,70 @@ export interface UploadFile {
 }
 
 export interface UploadProps {
+    /**
+     * 文件上传的目标路径地址
+     */
     action: string;
+    /**
+     * 默认文件列表
+     */
     defaultFileList?: UploadFile[];
+    /**
+     * 文件上传前回调函数
+     */
     beforeUpload?: (file: File) => boolean | Promise<File>;
+    /**
+     * 上传过程中回调
+     */
     onProgress?: (percentage: number, file: File) => void;
+    /**
+     * 文件上传成功回调
+     */
     onSuccess?: (data: any, file: File) => void;
+    /**
+     * 文件上传失误回调
+     */
     onError?: (err: any, file: File) => void;
+    /**
+     * 状态改变时回调
+     */
     onChange?: (file: File) => void;
+    /**
+     * 移除文件时回调
+     */
     onRemove?: (file: UploadFile) => void;
+    /**
+     * 是否传递cookie
+     */
     withCredentials?: boolean;
+    /**
+     * 请求头部设置
+     */
     headers?: {[key: string]: any};
+    /**
+     * 上传文件名称
+     */
     name?: string;
+    /**
+     * 上传时传递数据
+     */
     data?: {[key: string]: any};
+    /**
+     * 接受文件类型
+     */
     accept?: string
+    /**
+     * 是否支持多文件同时上传
+     */
     multiple?: boolean
+    /**
+     * 是否支持拖动上传
+     */
     drag?: boolean
 }
+/**
+ * 上传文件组件
+ */
 const Upload: React.FC<UploadProps> = (props) => {
     const {
         action,

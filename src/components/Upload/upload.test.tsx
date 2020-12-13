@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios'
 import { render, RenderResult, fireEvent, createEvent, waitFor } from '@testing-library/react'
 
-import  Upload, { UploadProps } from './upload'
+import  Upload, { UploadProps } from './Upload'
 
 interface IconParamsObj {
     icon: HTMLElement,

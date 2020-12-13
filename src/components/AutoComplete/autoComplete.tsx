@@ -1,10 +1,10 @@
 import React, { FC, useState, ChangeEvent, KeyboardEvent, ReactElement, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import Input, { InputProps } from '../Input/input';
-import Icon from '../Icon/icon';
+import Input, { InputProps } from '../Input/Input';
+import Icon from '../Icon/Icon';
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside';
-import Transition from '../Transition/transition';
+import Transition from '../Transition/Transition';
 
 interface DataSourceObject {
     value: string
@@ -12,11 +12,22 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject;
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
+    /**
+     * 获取数据函数，可以返回数组或者Promise对象
+     */
     fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>,
+    /**
+     * 选中时回调函数
+     */
     onSelect?: (str: DataSourceType) => void,
-    renderOption?: (str: DataSourceType) => ReactElement | string
+    /**
+     * 渲染单列选项函数
+     */
+    renderOption?: (str: any) => ReactElement | string
 }
-
+/**
+ * 自动补全Input
+ */
 const AutoComplete: FC<AutoCompleteProps> = (props) => {
     const {
         fetchSuggestions,
