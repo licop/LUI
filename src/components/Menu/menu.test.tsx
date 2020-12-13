@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent, RenderResult, waitFor } from '@testing-library/react';
-import Menu, {MenuProps} from './Menu';
-import MenuItem from './MenuItem';
-import SubMenu from './SubMenu';
+import Menu, {MenuProps} from './menu';
+import MenuItem from './menuItem';
+import SubMenu from './subMenu';
 
 jest.mock('../Icon/icon', () => {
     return () => {

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, ChangeEvent} from 'react';
 import axios from 'axios';
 import Dragger from './dragger';
-import UploadList from './UploadList'
+import UploadList from './uploadList'
 
 type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error';
 export interface UploadFile {

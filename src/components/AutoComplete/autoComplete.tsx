@@ -1,10 +1,10 @@
 import React, { FC, useState, ChangeEvent, KeyboardEvent, ReactElement, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import Input, { InputProps } from '../Input/Input';
-import Icon from '../Icon/Icon';
+import Input, { InputProps } from '../Input/input';
+import Icon from '../Icon/icon';
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside';
-import Transition from '../Transition/Transition';
+import Transition from '../Transition/transition';
 
 interface DataSourceObject {
     value: string

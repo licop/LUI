@@ -1,10 +1,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { UploadProps } from './Upload';
+import { UploadProps } from './upload';
 import  Upload from './index';
 
-import Icon from '../Icon/Icon';
+import Icon from '../Icon/icon';
 import Button from '../Button';
 
 export default {
