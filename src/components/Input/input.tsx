@@ -1,7 +1,7 @@
 import React, {ChangeEvent, ReactElement, InputHTMLAttributes, HTMLAttributes} from 'react';
 import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import Icon from '../Icon/icon'
+import Icon from '../Icon/Icon'
 
 type InputSize = 'lg' | 'sm';
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {

@@ -1,11 +1,14 @@
 import React, {useState, createContext} from 'react';
 import classNames from 'classnames';
-import { MenuItemProps } from './menuItem'
+import { MenuItemProps } from './MenuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: string) => void;
 
-export interface MenuProps {
+export interface MenuProps {   
+    /**
+     * 默认 active 的菜单项的索引值 
+     */
     defaultIndex?: string,
     className?: string,
     /**
@@ -13,7 +16,13 @@ export interface MenuProps {
      */
     mode?: MenuMode,
     style?: React.CSSProperties,
+    /**
+     * 设置子菜单的默认打开 只在纵向模式下生效 
+     */
     defaultOpenSubMenu?: string[],
+    /*
+     * 点击菜单触发的回调函数
+     */
     onSelect?: SelectCallback
 }
 interface IMenuContext {
@@ -24,6 +33,9 @@ interface IMenuContext {
 }
 export const MenuContext = createContext<IMenuContext>({index: '0'});
 
+/**
+ * Menu组件
+ */
 const Menu: React.FC<MenuProps> = (props) => {
     const {className, mode, style, children, defaultIndex, defaultOpenSubMenu, onSelect} = props;
     const classes = classNames('lui-menu', className, {

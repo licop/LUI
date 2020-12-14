@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Input, {InputProps} from './input'
+import Input, {InputProps} from './Input'
 
 export default {
   title: 'Components/Input',
